@@ -471,7 +471,7 @@ def svc_training(cars, no_cars, color_space, spatial_size, hist_bins, pix_per_ce
 
 get_data()
 if (os.path.exists('svc.pkl')):
-    f = open('svc.pkl','rb')
+    f = open('svc.pkl', 'rb')
     svc, X_scaler = pickle.load(file=f)
 else:
     svc, X_scaler = svc_training(cars, notcars, color_space, spatial_size, hist_bins, pix_per_cell, cell_per_block,
