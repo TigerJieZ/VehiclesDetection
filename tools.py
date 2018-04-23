@@ -467,7 +467,7 @@ def svc_training(cars, no_cars, color_space, spatial_size, hist_bins, pix_per_ce
     f.close()
 
     return svc, scaled_X
-
+# test
 
 get_data()
 if (os.path.exists('svc.pkl')):
