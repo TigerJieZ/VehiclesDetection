@@ -25,7 +25,7 @@ hog_feat = True  # HOG features on or off
 
 
 def get_data():
-    images = glob.glob('E:/train_data/vehicles/*/*/*/*.png')
+    images = glob.glob('F:/数据中心/train_data/vehicles/*/*/*/*.png')
     print(len(images))
     global cars
     cars = []
@@ -463,10 +463,10 @@ def svc_training(cars, no_cars, color_space, spatial_size, hist_bins, pix_per_ce
 
     f = open('svc.pkl', 'wb')
     pickle.dump(svc, file=f)
-    pickle.dump(scaled_X, f)
+    pickle.dump(X_scaler, f)
     f.close()
 
-    return svc, scaled_X
+    return svc, X_scaler
 # test
 
 get_data()
@@ -476,6 +476,7 @@ if (os.path.exists('svc.pkl')):
 else:
     svc, X_scaler = svc_training(cars, notcars, color_space, spatial_size, hist_bins, pix_per_cell, cell_per_block,
                                  hog_channel, spatial_feat, hist_feat, hog_feat)
+    pass
 
 
 def svc_test(svc, X_scaler, pix_per_cell, cell_per_block, spatial_size, hist_bins):
